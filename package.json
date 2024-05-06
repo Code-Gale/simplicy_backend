@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.3"
+  },
+  "name": "simplicy",
+  "version": "1.0.0",
+  "description": "api for alx-final-project_specialization SIMPLICY",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Code-Gale/simplicy_backend.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Code Singer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Code-Gale/simplicy_backend/issues"
+  },
+  "homepage": "https://github.com/Code-Gale/simplicy_backend#readme"
+}
