@@ -5,16 +5,10 @@ const User = require('../models/userModel')
 const dotenv = require('../.env')
 
 
-const payload = {
-    userId : savedUser._id
-}
-const secretKey = process.env.SECRET_KEY
-const options = {
-    expiresIn : '3h'
-}
+
 const signup = async (req, res) => {
     try{
-        const { fullname, email, role, region, password } = req.body
+        const { fullName, email, role, region, password } = req.body
         const existingEmail = await User.findOne({email})
         if(existingEmail){
             res.status(400).json({message :'Email already exists. Please try a new Email'})
@@ -24,7 +18,7 @@ const signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt)
         //creating new user
         const newUser = new User({
-            fullname,
+            fullName,
             email,
             role,
             region,
@@ -32,7 +26,13 @@ const signup = async (req, res) => {
         })
         //saving new user
         const savedUser = await newUser.save()
-
+        const payload = {
+            userId : savedUser._id
+        }
+        const secretKey = process.env.SECRET_KEY
+        const options = {
+            expiresIn : '3h'
+        }
         const token = jwt.sign(payload, secretKey, options)
         res.status(201).json({token})
     }catch (error) {
@@ -51,6 +51,15 @@ const login = async (req, res) => {
         if(!matchedPassword){
             res.status(400).json({message :'Invalid Credentials!'})
         }
+
+        const payload = {
+            userId : user._id
+        }
+        const secretKey = process.env.SECRET_KEY
+        const options = {
+            expiresIn : '3h'
+        }
+
         const token = jwt.sign(payload, secretKey, options)
         res.status(200).json({token})
     }catch (err){
