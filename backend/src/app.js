@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const connectDB = require('./config/db')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
+const productRoutes = require('./routes/productRoutes')
 
 // loading env variables
 dotenv.config()
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended : true}))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users/', userRoutes)
+app.use('/api/products/', productRoutes)
 
 const PORT = process.env.PORT || 3000;
 
