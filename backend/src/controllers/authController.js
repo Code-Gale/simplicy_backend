@@ -36,8 +36,8 @@ const signup = async (req, res) => {
         const token = jwt.sign(payload, secretKey, options)
         res.status(201).json({token})
     }catch (error) {
-        console.log(error)
         res.status(500).json({message : 'Internal Server Error'})
+        console.log(error)
     }
 }
 const login = async (req, res) => {
@@ -67,8 +67,19 @@ const login = async (req, res) => {
         res.status(400).json({message : 'Internal Server Error'})
     }
 }
+const logout = async (req, res) => {
+    try {
+      // Clear the JWT token from the client-side
+      res.clearCookie('token');
+      res.status(200).json({ message: 'Logout successful' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
 
 module.exports = {
     signup,
-    login
+    login,
+    logout
 }
