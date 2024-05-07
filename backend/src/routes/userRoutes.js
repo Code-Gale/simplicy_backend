@@ -6,4 +6,4 @@ router.get('/:id', getById)
 router.put('/:id', updateUser)
 router.delete('/:id', deleteUser)
 
-module.exports = router
+module.exports = router;
