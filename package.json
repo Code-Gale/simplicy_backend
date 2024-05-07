@@ -4,7 +4,9 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.3"
+    "module": "^1.2.5",
+    "mongoose": "^8.3.3",
+    "validator": "^13.11.0"
   },
   "name": "simplicy",
   "version": "1.0.0",
