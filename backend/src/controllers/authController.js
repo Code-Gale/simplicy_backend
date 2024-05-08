@@ -34,9 +34,12 @@ const signup = async (req, res) => {
             expiresIn : '3h'
         }
         const token = jwt.sign(payload, secretKey, options)
-        res.status(201).json({token})
+        const userRole = savedUser.role
+        res.status(201).json({
+            token,
+            userRole})
     }catch (error) {
-        res.status(500).json({message : 'Internal Server Error'})
+        res.status(500).json( {message : 'Internal Server Error'} )
         console.log(error)
     }
 }
@@ -61,7 +64,11 @@ const login = async (req, res) => {
         }
 
         const token = jwt.sign(payload, secretKey, options)
-        res.status(200).json({token})
+        const userRole = user.role
+        res.status(200).json({
+            token,
+            userRole
+        })
     }catch (err){
         console.log(err)
         res.status(400).json({message : 'Internal Server Error'})
