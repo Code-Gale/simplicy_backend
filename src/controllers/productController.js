@@ -105,10 +105,25 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+//get products by seller's ID for seller profile
+const getProductBySeller = async (req, res) => {
+  try {
+    const products = await Product.find({ seller: req.params.id });
+    if (products.length === 0) {
+      return res.status(404).json({ message: 'No products found for the specified seller' });
+    }
+    res.status(200).json(products);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
   getAll,
   getById,
   addProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getProductBySeller
 }
