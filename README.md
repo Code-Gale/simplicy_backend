@@ -193,6 +193,23 @@ Start the server
   nodemon app
 ```
 
+## All Endpoints
+# Authentication
+**Signup(POST) - /api/auth/signup**
+**Login(POST) - /api/auth/login**
+**Logout(POST) - /api/auth/logout**
+# USers
+**All Users(GET) - /api/users/**
+**UserById(GET) - /api/users/:id**
+**Update User(PUT) - /api/users/:id**
+**Delete User(DELETE) - /api/users/:id**
+# Products
+**All Products(GET) - /api/products/**
+**ProductById(GET) - /api/products/:id**
+**ProductsBySeller(GET) - /api/products/:id/products**
+**New Product(POST)(Sellers only) - /api/products/newProducts**
+**Update Product(PUT)(Sellers only) - /api/products/:id**
+**Delete Product(DELETE)(Sellers only) - /api/products/:id**
 
 ## Appendix
 To be integrated into Simplicy Frontend
