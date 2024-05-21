@@ -6,6 +6,7 @@ const dotenv = require('../.env')
 
 
 
+
 const signup = async (req, res) => {
     try{
         const { fullName, email, role, region, password } = req.body
@@ -29,15 +30,16 @@ const signup = async (req, res) => {
         const payload = {
             userId : savedUser._id
         }
-        const secretKey = process.env.SECRET_KEY
+        // const secretKey = process.env.SECRET_KEY;
+        const secretKey = "underdog"
         const options = {
             expiresIn : '3h'
         }
         const token = jwt.sign(payload, secretKey, options)
-        const userRole = savedUser.role
+        // const userRole = savedUser.role
         res.status(201).json({
             token,
-            userRole})
+            savedUser})
     }catch (error) {
         res.status(500).json( {message : 'Internal Server Error'} )
         console.log(error)
@@ -58,16 +60,17 @@ const login = async (req, res) => {
         const payload = {
             userId : user._id
         }
-        const secretKey = process.env.SECRET_KEY
+        // const secretKey = process.env.SECRET_KEY
+        const secretKey = "underdog"
         const options = {
             expiresIn : '3h'
         }
 
         const token = jwt.sign(payload, secretKey, options)
-        const userRole = user.role
+        // const userRole = user.role
         res.status(200).json({
             token,
-            userRole
+            user
         })
     }catch (err){
         console.log(err)
