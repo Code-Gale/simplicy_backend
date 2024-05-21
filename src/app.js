@@ -28,7 +28,7 @@ app.use('/api/users/', userRoutes)
 app.use('/api/products/', productRoutes)
 app.use('/api/photos/', photoRoutes)
 app.use('/api/photo-by-link/', photoRoutes)
-app.use('/api/', express.static(path.join(__dirname, 'uploads')));
+app.use('/api/', express.static(path.join(__dirname, 'uploads')));//auth
 
 
 
