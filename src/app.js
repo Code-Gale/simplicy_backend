@@ -5,6 +5,7 @@ const connectDB = require('./config/db')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
 const productRoutes = require('./routes/productRoutes')
+const photoRoutes = require('./routes/photoRoutes');
 
 
 // loading env variables
@@ -23,6 +24,8 @@ app.use(cors())
 app.use('/api/auth', authRoutes)
 app.use('/api/users/', userRoutes)
 app.use('/api/products/', productRoutes)
+app.use('/api/photos', photoRoutes);
+app.use('/uploads', express.static('uploads'));
 
 const PORT = process.env.PORT || 3000;
 
