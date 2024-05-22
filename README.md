@@ -207,7 +207,7 @@ Start the server
 **All Products(GET) - /api/products/**
 **ProductById(GET) - /api/products/:id**
 **ProductsBySeller(GET) - /api/products/:id/products**
-**New Product(POST)(Sellers only) - /api/products/newProducts**
+**New Product(POST)(Sellers only) - /api/products/newProduct**
 **Update Product(PUT)(Sellers only) - /api/products/:id**
 **Delete Product(DELETE)(Sellers only) - /api/products/:id**
 
